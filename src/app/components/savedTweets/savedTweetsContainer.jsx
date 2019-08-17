@@ -38,9 +38,15 @@ export default function SavedTweetsContainer () {
         addtoSavedTweets(item.tweet);
     }
 
+    const onClickClearAll = () => {
+        setTweets([]);
+
+        storeTweetsService.saveTweets([]);
+    }
+
     return (
         <div ref={drop} className={classes.root}>
-            <SavedTweetsList tweets={tweets}></SavedTweetsList>
+            <SavedTweetsList tweets={tweets} onClickClearAll={onClickClearAll}></SavedTweetsList>
         </div>
     );
 }

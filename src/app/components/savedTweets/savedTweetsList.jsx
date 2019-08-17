@@ -1,7 +1,7 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import {List, ListSubheader, Divider} from '@material-ui/core';
+import {List, ListSubheader, Divider, Button} from '@material-ui/core';
 import TweetItem from '../tweetItem.jsx';
 
 const useStyles = makeStyles({
@@ -14,17 +14,28 @@ const useStyles = makeStyles({
         overflowY: "scroll"
     },
     subheader: {
-        backgroundColor: "white"
+        backgroundColor: "white",
+        display: "flex"
+    },
+    subheaderLeft: {
+        flexGrow: 1
     }
 });
 
-export default function SavedTweetsList({tweets}) {
+export default function SavedTweetsList({tweets, onClickClearAll}) {
     const classes = useStyles();
+
+    const subHeader = (
+        <ListSubheader className={classes.subheader}>
+            <div className={classes.subheaderLeft}>Saved Tweets</div>
+            <Button color="secondary" onClick={onClickClearAll}>CLEAR ALL</Button>
+        </ListSubheader>
+    )
 
     return (
         <Paper className={classes.root}>
             <List className={classes.list}
-                subheader={<ListSubheader className={classes.subheader}>Saved Tweets</ListSubheader>}>
+                subheader={subHeader}>
                 {
                     tweets.map((tweet, index) => (
                         <div key={tweet.id.toString()}>
