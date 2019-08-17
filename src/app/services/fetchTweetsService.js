@@ -26,6 +26,8 @@ export const ErrorMessageOnInvalidQuery = "Query must only contain letters, numb
 
 export const fetchTweetService = {
     fetchTweets: (query) => {
+        if (!verifyQuery(query)) return;
+
         const encodedQuery = encodeURIComponent(query);
 
         return fetchJsonp(`${fetchBaseURL}/?q=${encodedQuery}&count=10`)

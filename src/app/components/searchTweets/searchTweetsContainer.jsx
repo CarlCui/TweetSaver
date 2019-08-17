@@ -16,6 +16,8 @@ export default function SearchTweetsContainer() {
     const [tweets, setTweets] = React.useState([]);
 
     const onSearchClick = (textInput) => {
+        if (textInput.length === 0) return;
+
         fetchTweetService.fetchTweets(textInput)
             .then((tweets) => setTweets(tweets));
     };
