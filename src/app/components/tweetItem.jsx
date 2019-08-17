@@ -46,11 +46,8 @@ const useStyles = makeStyles({
 export default function TweetItem({tweet}) {
     const classes = useStyles();
 
-    const [{ isDragging }, drag] = useDrag({
-        item: { type: itemTypes.TWEET, tweet: tweet },
-        collect: monitor => ({
-            isDragging: !!monitor.isDragging(),
-        }),
+    const [, drag] = useDrag({
+        item: { type: itemTypes.TWEET, tweet: tweet }
     });
 
     const createdDate = new Date(tweet.createdAt);
