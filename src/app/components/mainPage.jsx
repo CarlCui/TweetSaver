@@ -9,7 +9,8 @@ import SearchTweetsContainer from "./searchTweets/searchTweetsContainer.jsx";
 const useStyles = makeStyles({
     container: {
         display: "flex",
-        justifyContent: "center"
+        justifyContent: "center",
+        marginTop: "36px"
     },
     left: {
         width: "400px"
