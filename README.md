@@ -4,11 +4,17 @@
 
 `npm install`
 
-# To build
+# Run as webpack test server
+
+`npm run start:dev`
+
+# OR:
+
+## To build
 
 `npm run build`
 
-# Start server
+## Start server
 
 `npm start`
 
