@@ -1,43 +1,31 @@
-import React, {Component} from 'react';
+import React from 'react';
 import SearchTweetsSearchBar from './searchTweetsSearchbar.jsx';
 import SearchTweetsList from './searchTweetsList.jsx';
 import {fetchTweetService, verifyQuery} from '../../services/fetchTweetsService.js';
 
-class SearchTweetsContainer extends Component {
+export default function SearchTweetsContainer() {
 
-    constructor(props) {
-        super(props);
+    const [tweets, setTweets] = React.useState([]);
+    const [inputError, setInputError] = React.useState(false);
 
-        this.state = {
-            tweets: [],
-            inputError: false
-        }
-
-        this.onSearchClick = this.onSearchClick.bind(this);
-    }
-
-    onSearchClick(textInput) {
+    const onSearchClick = (textInput) => {
         if (verifyQuery(textInput)) {
-            this.setState({inputError: false});
+            setInputError(false);
         } else {
-            this.setState({inputError: true});
+            setInputError(true);
             return;
         }
 
         fetchTweetService.fetchTweets(textInput)
-            .then((tweets) => this.setState({tweets: tweets}));
-    }
+            .then((tweets) => setTweets(tweets));
+    };
 
-    render() {
-        return (
-            <div>
-                <SearchTweetsSearchBar
-                    onSearchClick={this.onSearchClick}
-                    inputError={this.state.inputError}></SearchTweetsSearchBar>
-                <SearchTweetsList tweets={this.state.tweets}></SearchTweetsList>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <SearchTweetsSearchBar
+                onSearchClick={onSearchClick}
+                inputError={inputError}></SearchTweetsSearchBar>
+            <SearchTweetsList tweets={tweets}></SearchTweetsList>
+        </div>
+    );
 }
-
-export default SearchTweetsContainer;
