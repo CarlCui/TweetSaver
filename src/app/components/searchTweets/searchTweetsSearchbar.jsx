@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     display: 'flex'
   },
   input: {
-    marginLeft: 8,
+    marginLeft: 16,
     flex: 1,
   },
   iconButton: {
@@ -26,9 +26,6 @@ export default function searchTweetsSearchBar({inputError, onSearchClick}) {
 
   return (
     <Paper className={classes.root}>
-      <IconButton className={classes.iconButton} aria-label="menu">
-        <MenuIcon />
-      </IconButton>
       <InputBase
         className={classes.input}
         placeholder="Search tweets"
