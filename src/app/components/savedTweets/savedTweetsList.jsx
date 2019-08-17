@@ -7,6 +7,14 @@ import TweetItem from '../tweetItem.jsx';
 const useStyles = makeStyles({
     root: {
         height: "500px"
+    },
+    list: {
+        padding: 0,
+        maxHeight: '100%',
+        overflowY: "scroll"
+    },
+    subheader: {
+        backgroundColor: "white"
     }
 });
 
@@ -15,8 +23,8 @@ export default function SavedTweetsList({tweets}) {
 
     return (
         <Paper className={classes.root}>
-            <List
-                subheader={<ListSubheader>Saved Tweets</ListSubheader>}>
+            <List className={classes.list}
+                subheader={<ListSubheader className={classes.subheader}>Saved Tweets</ListSubheader>}>
                 {
                     tweets.map((tweet, index) => (
                         <div key={tweet.id.toString()}>
