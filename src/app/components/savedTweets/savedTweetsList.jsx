@@ -6,7 +6,7 @@ import TweetItem from '../tweetItem.jsx';
 
 const useStyles = makeStyles({
     root: {
-        height: "500px"
+        height: "100%"
     },
     list: {
         padding: 0,

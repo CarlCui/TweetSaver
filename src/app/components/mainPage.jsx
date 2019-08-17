@@ -6,6 +6,9 @@ import ArrowRightAlt from "@material-ui/icons/ArrowRightAlt"
 import SavedTweetsContainer from "./savedTweets/savedTweetsContainer.jsx";
 import SearchTweetsContainer from "./searchTweets/searchTweetsContainer.jsx";
 
+const panelWidth = 400;
+const panelHeight = 550;
+
 const useStyles = makeStyles({
     container: {
         display: "flex",
@@ -13,7 +16,8 @@ const useStyles = makeStyles({
         marginTop: "36px"
     },
     left: {
-        width: "400px"
+        width: panelWidth,
+        height: panelHeight
     },
     middle: {
         width: "fit-content",
@@ -22,7 +26,8 @@ const useStyles = makeStyles({
         marginRight: "16px"
     },
     right: {
-        width: "400px"
+        width: panelWidth,
+        height: panelHeight
     },
     arrow: {
         fontSize: "40px",

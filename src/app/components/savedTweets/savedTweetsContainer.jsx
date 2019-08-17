@@ -1,11 +1,18 @@
 import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import SavedTweetsList from './savedTweetsList.jsx';
 import {useDrop} from 'react-dnd';
 import {itemTypes} from '../../constants/dnd.js';
 import {storeTweetsService} from '../../services/storeTweetsService.js';
 
+const useStyles = makeStyles({
+    root: {
+        height: "100%"
+    }
+});
 
 export default function SavedTweetsContainer () {
+    const classes = useStyles();
 
     const [tweets, setTweets] = React.useState(storeTweetsService.getTweets());
 
@@ -32,7 +39,7 @@ export default function SavedTweetsContainer () {
     }
 
     return (
-        <div ref={drop}>
+        <div ref={drop} className={classes.root}>
             <SavedTweetsList tweets={tweets}></SavedTweetsList>
         </div>
     );

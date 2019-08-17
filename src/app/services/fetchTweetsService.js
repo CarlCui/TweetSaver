@@ -22,6 +22,8 @@ export const verifyQuery = (query) => {
     return !!(query && (typeof query === 'string') && query.match(queryFormatRegex));
 }
 
+export const ErrorMessageOnInvalidQuery = "Query must only contain letters, numbers and spaces";
+
 export const fetchTweetService = {
     fetchTweets: (query) => {
         const encodedQuery = encodeURIComponent(query);

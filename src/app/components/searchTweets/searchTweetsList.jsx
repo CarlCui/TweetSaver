@@ -8,7 +8,7 @@ import TweetItem from '../tweetItem.jsx';
 const useStyles = makeStyles({
     root: {
         marginTop: "16px",
-        height: "440px"
+        height: "83%"
     },
     list: {
         padding: 0,
